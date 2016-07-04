@@ -8,6 +8,12 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Turn on automatic invocation of the MOC
 set(CMAKE_AUTOMOC ON)
 
+if( CMAKE_CL_64 OR CMAKE_SIZEOF_VOID_P EQUAL 8 ) 
+	find_path(Qt5Widgets_DIR Qt5WidgetsConfig.cmake PATHS "D:/DEV/Qt/5.7/msvc2013_64/lib/cmake/Qt5Widgets" )
+else( CMAKE_CL_64 OR CMAKE_SIZEOF_VOID_P EQUAL 8 ) 
+	find_path(Qt5Widgets_DIR Qt5WidgetsConfig.cmake PATHS "D:/DEV/Qt/5.7/msvc2013/lib/cmake/Qt5Widgets" )
+endif( CMAKE_CL_64 OR CMAKE_SIZEOF_VOID_P EQUAL 8 )
+
 # There may be a way to tell up front if Qt5 is going to be found, but I haven't found
 # a foolproof way to do it yet, so settle for the default error message for now.
 #if(NOT CMAKE_PREFIX_PATH AND NOT Qt5Widgets_DIR)
